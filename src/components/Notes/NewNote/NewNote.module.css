@@ -1,0 +1,21 @@
+.newNote{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+.newNoteBtn{
+    width: 20%;
+    height: 3em;
+    background-color: rgb(20,78,115);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: width 0.5s, opacity 0.5s;
+}
+.newNoteBtn:hover{
+    width: 21%;
+    opacity: 0.8;
+}
