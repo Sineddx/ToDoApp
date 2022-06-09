@@ -15,7 +15,7 @@
     cursor: pointer;
 }
 .controlBtns{
-    width: 10rem;
+    width: 9rem;
     display: flex;
     justify-content: space-evenly;
 }
@@ -26,6 +26,10 @@
 .delBtn{
     background-color: rgb(20, 78, 115);
     color: white;
+    transition: opacity 0.5s
+}
+.delBtn:active{
+    opacity: 0;
 }
 .editBtn, .delBtn {
     cursor: pointer;
@@ -33,19 +37,11 @@
     height: 2rem;
     border-radius: 10px;
     border: none;
-    transition: opacity 0.3s;
 }
 
-.editBtn:hover, .delBtn:hover, .done:hover{
+.editBtn:hover, .delBtn:hover{
     opacity: 0.8;
 }
 .desc{
     text-decoration:underline;
-}
-.done{
-    width: 20%;
-    cursor: pointer;
-}
-.controlBtns > button, img {
-    margin-right: 5px;
 }

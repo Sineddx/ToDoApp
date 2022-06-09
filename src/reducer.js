@@ -6,6 +6,10 @@ export const reducer = (state, action) => {
       return state;
     case "EDIT_NOTE":
       return state;
+    case "SHOW_MODAL":
+      return {...state, showModal:true}
+    case "HIDE_MODAL":
+      return {...state, showModal:false}
     default:
       throw new Error();
   }
@@ -26,4 +30,5 @@ export const initialState = {
       done: false,
     },
   ],
+  showModal: false
 };

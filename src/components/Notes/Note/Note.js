@@ -2,20 +2,24 @@ import { useState } from "react";
 import styles from "./Note.module.css";
 import myIcon from "../../../assets/icons/done2.svg";
 function Note(props) {
+  const {note, taskDone} = styles;
   const [show, setShow] = useState(false);
+  const [noteClass, setNoteClass] = useState(false);
   const showHandler = () => {
     setShow(!show);
   };
+  const doneHandler = (e) => {
+    setNoteClass(true)
+  }
   return (
-    <div className={styles.note}>
+    <div className={noteClass ? note : note} >
       <div onClick={showHandler}>
         <p>{props.title}</p>
         {show && <div className={styles.desc}> {props.desc} </div>}
       </div>
       <div className={styles.controlBtns}>
-        <img className={styles.done} src={myIcon}></img>
         <button className={styles.editBtn}>Edytuj</button>
-        <button className={styles.delBtn}>Usuń</button>
+        <button onClick={(e)=>doneHandler()} className={styles.delBtn}>Usuń</button>
       </div>
     </div>
   );
