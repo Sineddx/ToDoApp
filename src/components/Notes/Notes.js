@@ -11,7 +11,12 @@ function Notes() {
     <section className={styles.notes}>
       {notes
         ? notes.map((note) => (
-            <Note key={note.id} desc={note.desc} title={note.title} />
+            <Note
+              key={note.id}
+              id={note.id}
+              desc={note.desc}
+              title={note.title}
+            />
           ))
         : null}
       <NewNote />

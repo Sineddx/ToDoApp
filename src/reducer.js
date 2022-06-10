@@ -1,15 +1,24 @@
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_NOTE":
-      return state;
+      return { ...state, notes: [...state.notes, action.note] };
     case "DELETE_NOTE":
-      return state;
+      const newNotes = state.notes.filter((note) => note.id !== action.id);
+      return { ...state, notes: newNotes };
     case "EDIT_NOTE":
-      return state;
+      return { ...state, editData: action.data };
+    case "OVERWRITE":
+      const notes = [...state.notes];
+      const index = notes.findIndex((x) => x.id === action.id);
+      if (index >= 0) {
+        notes[index].title = action.title;
+        notes[index].desc = action.desc;
+      }
+      return { ...state, notes: notes };
     case "SHOW_MODAL":
-      return {...state, showModal:true}
+      return { ...state, showModal: true };
     case "HIDE_MODAL":
-      return {...state, showModal:false}
+      return { ...state, showModal: false };
     default:
       throw new Error();
   }
@@ -30,5 +39,6 @@ export const initialState = {
       done: false,
     },
   ],
-  showModal: false
+  showModal: false,
+  editData: {},
 };
